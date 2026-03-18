@@ -6,9 +6,9 @@ public enum BuildStatusEnum {
     COMPLETED("Completed", 100);
 
     private final String displayName;
-    private final int progressPercent;
+    private final Integer progressPercent;
 
-    BuildStatusEnum(String displayName, int progressPercent) {
+    BuildStatusEnum(String displayName, Integer progressPercent) {
         this.displayName = displayName;
         this.progressPercent = progressPercent;
     }

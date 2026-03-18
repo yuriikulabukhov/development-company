@@ -34,15 +34,12 @@ public abstract class Building implements Buildable, Measurable {
         return "Area: " + getArea() + " sq.m, Rooms: " + (plan != null ? plan.getRooms() : 0);}
 
     public BuildingPlan getPlan() {return plan;}
-
     public void setPlan(BuildingPlan plan) {this.plan = plan;}
 
     public Address getLocation() {return address;}
-
     public void setLocation(Address address) {this.address = address;}
 
-    public void markAsBuilt() {built = true;
-    }
+    public void markAsBuilt() {built = true;}
 
     public boolean isBuilt() {return built;}
 

@@ -53,7 +53,7 @@ public abstract class Person {
     }
 
     public void displayInfo() {
-        System.out.println(getFullName());
+        LOGGER.info(getFullName());
     }
 
     public void displayInfo(boolean detailed) {
