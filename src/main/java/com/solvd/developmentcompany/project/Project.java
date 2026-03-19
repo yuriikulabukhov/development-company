@@ -119,7 +119,7 @@ public class Project implements Approvable, Payable {
     }
 
     public void validateLocation() throws InvalidAddressException {
-        if (address == null || address.getCity() == null || address.getCity().isEmpty()) {
+        if (address == null || address.getFullAddress() == null || address.getFullAddress().isEmpty()) {
             throw new InvalidAddressException("Invalid address: Can't be empty");
         }
     }
