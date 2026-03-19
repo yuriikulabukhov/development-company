@@ -49,9 +49,10 @@ public class Office extends Building {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Office office = (Office) o;
-        return Objects.equals(numberOfOffices, office.numberOfOffices) &&
-                Objects.equals(hasUndergroundParking, office.hasUndergroundParking) &&
-                Objects.equals(numberOfElevators, office.numberOfElevators);
+        return Objects.equals(numberOfOffices, office.numberOfOffices)
+                && Objects.equals(hasUndergroundParking, office.hasUndergroundParking)
+                && Objects.equals(numberOfElevators, office.numberOfElevators);
+
     }
 
     @Override

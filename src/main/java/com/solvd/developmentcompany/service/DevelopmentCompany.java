@@ -7,9 +7,9 @@ import com.solvd.developmentcompany.exceptions.BudgetExceededException;
 import com.solvd.developmentcompany.exceptions.InvalidAddressException;
 import com.solvd.developmentcompany.exceptions.InvalidPermitException;
 import com.solvd.developmentcompany.exceptions.ProjectNotApprovedException;
+import com.solvd.developmentcompany.person.Employee;
 import com.solvd.developmentcompany.project.Project;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +18,10 @@ public class DevelopmentCompany {
     private Address address;
     private List<Project> activeProjects;
     private static final Logger LOGGER = LoggerFactory.getLogger(DevelopmentCompany.class);
-
+    private Map<Integer, Employee> employeeById = new HashMap<>();
+    private Set<String> usedMaterials = new HashSet<>();
+    private Map<String, Double> budgetHistory = new TreeMap<>();
+    private Deque<ConstructionPhase> phaseQueue = new ArrayDeque<>();
 
     public DevelopmentCompany() {}
 
@@ -84,15 +87,32 @@ public class DevelopmentCompany {
         }
     }
 
+    public void addProject(Project project) {
+        activeProjects.add(project);                      // ArrayList usage
+    }
+
+    public void addPhaseToQueue(ConstructionPhase phase) {
+        phaseQueue.addLast(phase);                        // Deque usage
+    }
+
+    public void registerEmployee(Employee emp) {
+        employeeById.put(emp.getEmployeeId(), emp);      // HashMap usage
+    }
+
+    public void recordMaterial(String materialName, double cost) {
+        usedMaterials.add(materialName);                 // HashSet — ignores duplicates
+        budgetHistory.put(materialName, cost);           // TreeMap — auto-sorted
+    }
+
+    public List<Project> getActiveProjects() { return activeProjects; }
+
+    public void removeProject(Project project) { activeProjects.remove(project); }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
     public Address getAddress() { return address; }
     public void setAddress(Address address) { this.address = address; }
-
-    public List<Project> getActiveProjects() { return activeProjects; }
-    public void addProject(Project project) { activeProjects.add(project); }
-    public void removeProject(Project project) { activeProjects.remove(project); }
 
     @Override
     public String toString() {
