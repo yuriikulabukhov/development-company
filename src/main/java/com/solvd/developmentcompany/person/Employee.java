@@ -2,11 +2,13 @@ package com.solvd.developmentcompany.person;
 
 import com.solvd.developmentcompany.common.Address;
 import com.solvd.developmentcompany.interfaces.Serviceable;
+import com.solvd.developmentcompany.common.SkillLevel;
 
 public abstract class Employee extends Person implements Serviceable {
     private Integer employeeId;
     private Double salary;
     private Integer yearsExperience;
+
 
     public Employee() {}
 
@@ -16,6 +18,7 @@ public abstract class Employee extends Person implements Serviceable {
         this.employeeId = employeeId;
         this.salary = salary;
         this.yearsExperience = yearsExperience;
+
     }
 
     public Integer getEmployeeId() {return employeeId;}

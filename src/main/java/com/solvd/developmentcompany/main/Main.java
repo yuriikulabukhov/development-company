@@ -3,6 +3,7 @@ package com.solvd.developmentcompany.main;
 import com.solvd.developmentcompany.building.Building;
 import com.solvd.developmentcompany.building.BuildingPlan;
 import com.solvd.developmentcompany.common.Address;
+import com.solvd.developmentcompany.common.MaterialType;
 import com.solvd.developmentcompany.construction.ConstructionPhase;
 import com.solvd.developmentcompany.construction.FoundationConstruction;
 import com.solvd.developmentcompany.construction.RoofConstruction;
