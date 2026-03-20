@@ -44,19 +44,17 @@ public class Office extends Building {
                 ", hasUndergroundParking=" + hasUndergroundParking +
                 ", numberOfElevators=" + numberOfElevators + '}';
     }
-
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Office office = (Office) o;
         return Objects.equals(numberOfOffices, office.numberOfOffices)
                 && Objects.equals(hasUndergroundParking, office.hasUndergroundParking)
                 && Objects.equals(numberOfElevators, office.numberOfElevators);
-
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(numberOfOffices, hasUndergroundParking, numberOfElevators);
-    }
+        return Objects.hash(super.hashCode(), numberOfOffices, hasUndergroundParking, numberOfElevators); }
 }

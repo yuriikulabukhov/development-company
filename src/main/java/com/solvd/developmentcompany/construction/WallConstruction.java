@@ -42,21 +42,4 @@ public class WallConstruction extends ConstructionPhase {
     public Budget getBudget() { return budget; }
     public void setBudget(Budget budget) { this.budget = budget;}
 
-    @Override
-    public String toString() {
-        return "WallConstruction{" +
-                "wallType='" + wallType + '\'' + ", wallArea=" + wallArea +
-                ", material=" + material + ", budget=" + budget + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        WallConstruction that = (WallConstruction) o;
-        return Objects.equals(wallType, that.wallType) && Objects.equals(wallArea, that.wallArea) &&
-                Objects.equals(material, that.material) && Objects.equals(budget, that.budget);
-    }
-
-    @Override
-    public int hashCode() { return Objects.hash(wallType, wallArea, material, budget);}
 }

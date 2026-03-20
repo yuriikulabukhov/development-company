@@ -54,20 +54,4 @@ public class Customer extends Person implements Payable {
         return accountBalance;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" + "customerId=" + customerId + ",name='" + getFullName() + '\'' +
-                ",accountBalance=" + accountBalance + ",age=" + getAge() + '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Customer customer = (Customer) obj;
-        return Objects.equals(customerId, customer.customerId);
-    }
-
-    @Override
-    public int hashCode() {return Objects.hash(customerId, getFirstName(), getLastName());}
 }

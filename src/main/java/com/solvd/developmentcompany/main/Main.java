@@ -9,6 +9,7 @@ import com.solvd.developmentcompany.construction.FoundationConstruction;
 import com.solvd.developmentcompany.construction.RoofConstruction;
 import com.solvd.developmentcompany.construction.WallConstruction;
 import com.solvd.developmentcompany.exceptions.*;
+import com.solvd.developmentcompany.interfaces.ISearch;
 import com.solvd.developmentcompany.interfaces.Serviceable;
 import com.solvd.developmentcompany.person.*;
 import com.solvd.developmentcompany.project.Budget;
@@ -17,6 +18,8 @@ import com.solvd.developmentcompany.project.Permit;
 import com.solvd.developmentcompany.project.Project;
 import com.solvd.developmentcompany.service.DevelopmentCompany;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -87,6 +90,7 @@ public class Main {
             purchaseMaterial(concrete, budget);
             purchaseMaterial(bricks, budget);
             purchaseMaterial(roofing, budget);
+
 
             Permit permit = new Permit("PERMIT-2026-001", true);
 

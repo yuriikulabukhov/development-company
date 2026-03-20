@@ -43,27 +43,4 @@ public class FoundationConstruction extends ConstructionPhase {
     public Budget getBudget() { return budget; }
     public void setBudget(Budget budget) { this.budget = budget; }
 
-    @Override
-    public String toString() {
-        return "FoundationConstruction{" +
-                "name='" + getName() + '\'' +
-                ", foundationType='" + foundationType + '\'' +
-                ", concreteVolume=" + concreteVolume +
-                ", budget=" + budget +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FoundationConstruction that = (FoundationConstruction) o;
-        return Objects.equals(foundationType, that.foundationType) &&
-                Objects.equals(concreteVolume, that.concreteVolume);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(foundationType, concreteVolume);
-    }
 }

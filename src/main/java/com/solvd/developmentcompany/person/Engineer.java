@@ -18,7 +18,6 @@ public class Engineer extends Employee {
         this.specialization = specialization;
         this.isLicensed = isLicensed;
     }
-
     @Override
     public void work() {
         LOGGER.info("Engineer " + getFullName() + " performs structural calculations and technical analysis");

@@ -50,13 +50,13 @@ public class TownHouse extends Building {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         TownHouse that = (TownHouse) o;
         return Objects.equals(houseUnits, that.houseUnits) &&
-                Objects.equals(getLocation(), that.getLocation());
+                Objects.equals(hasParking, that.hasParking);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getLocation(), houseUnits, hasParking);
-    }
+    public int hashCode() {return Objects.hash(super.hashCode(), houseUnits, hasParking);}
+
 }

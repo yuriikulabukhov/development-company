@@ -40,22 +40,4 @@ public class RoofConstruction extends ConstructionPhase {
     public Budget getBudget() { return budget; }
     public void setBudget(Budget budget) { this.budget = budget; }
 
-    @Override
-    public String toString() {
-        return "RoofConstruction{" +
-                "roofType='" + roofType + '\'' + ", roofArea=" + roofArea +
-                ", material=" + material + ", budget=" + budget + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        RoofConstruction that = (RoofConstruction) o;
-        return Objects.equals(roofType, that.roofType) && Objects.equals(roofArea, that.roofArea) &&
-                Objects.equals(material, that.material) && Objects.equals(budget, that.budget);
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(roofType, roofArea, material, budget);
-    }
 }

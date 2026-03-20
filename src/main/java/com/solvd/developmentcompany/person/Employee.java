@@ -9,7 +9,6 @@ public abstract class Employee extends Person implements Serviceable {
     private Double salary;
     private Integer yearsExperience;
 
-
     public Employee() {}
 
     public Employee(String firstName, String lastName, Integer age, Address address, String contactInfo,
@@ -18,7 +17,6 @@ public abstract class Employee extends Person implements Serviceable {
         this.employeeId = employeeId;
         this.salary = salary;
         this.yearsExperience = yearsExperience;
-
     }
 
     public Integer getEmployeeId() {return employeeId;}

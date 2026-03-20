@@ -54,30 +54,4 @@ public class Builder extends Employee {
         double baseCost = super.calculateServiceCost();
         return isCertified ? baseCost * 1.3 : baseCost;
     }
-
-    @Override
-    public String toString() {
-        return "Builder " +
-                " employeeId :" + getEmployeeId() +
-                " name :" + getFullName() + '\'' +
-                " skillLevel :" + skillLevel + '\'' +
-                " isCertified :" + isCertified +
-                " yearsExperience :" + getYearsExperience() + " years";
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getEmployeeId(), getFirstName(), getLastName(), skillLevel, isCertified);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Builder builder = (Builder) obj;
-        return Objects.equals(getEmployeeId(), builder.getEmployeeId()) &&
-                Objects.equals(skillLevel, builder.skillLevel) &&
-                Objects.equals(isCertified, builder.isCertified);
-    }
-
 }

@@ -59,21 +59,4 @@ public class Architect extends Employee {
         return super.calculateServiceCost() * (1 + (completedProjects.size() * 0.05));
     }
 
-    @Override
-    public String toString() {
-        return "Architect{" + "designStyle='" + designStyle + '\'' + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Architect architect = (Architect) o;
-        return Objects.equals(designStyle, architect.designStyle) &&
-                Objects.equals(completedProjects, architect.completedProjects);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(designStyle, completedProjects);
-    }
 }
