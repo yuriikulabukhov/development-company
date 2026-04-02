@@ -101,7 +101,7 @@ public class DevelopmentCompany {
 
     public void recordMaterial(String materialName, double cost) {
         usedMaterials.add(materialName);                 // HashSet — ignores duplicates
-        budgetHistory.put(materialName, cost);           // TreeMap — auto-sorted
+        budgetHistory.put(materialName, cost);           // TreeMap — auto-sorted М ЭКХДПЩАД
     }
 
     public List<Project> getActiveProjects() { return activeProjects; }

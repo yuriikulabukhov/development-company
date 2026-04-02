@@ -16,10 +16,10 @@ import com.solvd.developmentcompany.project.Budget;
 import com.solvd.developmentcompany.project.Material;
 import com.solvd.developmentcompany.project.Permit;
 import com.solvd.developmentcompany.project.Project;
+import com.solvd.developmentcompany.service.CollectionStreaming;
 import com.solvd.developmentcompany.service.DevelopmentCompany;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -130,6 +130,22 @@ public class Main {
         } catch (InvalidPermitException | InvalidAddressException | ProjectNotApprovedException e) {
             LOGGER.error("Validation error: {}", e.getMessage(), e);
         }
+        LOGGER.info("\n7. COLLECTION STREAMING");
+
+        List<Employee> employees = List.of(
+                (Employee) team[0],
+                (Employee) team[1],
+                (Employee) team[2]);
+
+        List<Material> materials = List.of(
+                new Material("Concrete", 50000.0),
+                new Material("Bricks",   30000.0),
+                new Material("Roofing",  25000.0),
+                new Material("Steel",    80000.0),
+                new Material("Woood",  15000.0) );
+
+        CollectionStreaming.demonstrate(employees, materials);
+
     }
     private static void purchaseMaterial(Material material, Budget budget) 
             throws MaterialShortageException {
@@ -148,15 +164,12 @@ public class Main {
     private static void validateProject(Project project)
             throws InvalidPermitException, InvalidAddressException, BudgetExceededException {
         LOGGER.debug("Validating project...");
-
         project.validatePermit();
         LOGGER.debug("Permit valid");
-
         project.validateLocation();
         LOGGER.debug("Address valid");
-
         project.checkBudget(50000.0);
         LOGGER.debug("Budget sufficient");
-
     }
+
 }
