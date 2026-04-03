@@ -9,6 +9,8 @@ import com.solvd.developmentcompany.exceptions.InvalidPermitException;
 import com.solvd.developmentcompany.exceptions.ProjectNotApprovedException;
 import com.solvd.developmentcompany.person.Employee;
 import com.solvd.developmentcompany.project.Project;
+import com.solvd.developmentcompany.pool.ConnectionPool;
+import com.solvd.developmentcompany.pool.MyConnection;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,15 +37,26 @@ public class DevelopmentCompany {
             throws InvalidPermitException, InvalidAddressException, BudgetExceededException {
 
         LOGGER.info("\n[" + name + "] Starting project: " + project.getName());
+        MyConnection conn = ConnectionPool.getInstance().getConnection();
 
-        validateProject(project);
-        executePhases(project);
-        Building building = createBuilding(project);
-        building.markAsBuilt();
+        try {
+            validateProject(project);
+            executePhases(project);
+            Building building = createBuilding(project);
+            building.markAsBuilt();
 
-        LOGGER.info("[" + name + "] Done! " + building.getBuildingType()
-                + " built at " + project.getLocation().getFullAddress());
-        return building;
+            conn.query("INSERT INTO projects (name, type, status) VALUES ('"
+                    + project.getName() + "' '"
+                    + building.getBuildingType() + "', 'COMPLETED')");
+
+            LOGGER.info("[" + name + "] Project saved to database.");
+            LOGGER.info("[" + name + "] Done! " + building.getBuildingType()
+                    + " built at " + project.getLocation().getFullAddress());
+
+            return building; }
+
+        finally {
+            ConnectionPool.getInstance().releaseConnection(conn);}
     }
 
     private void validateProject(Project project)
