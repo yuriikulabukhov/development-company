@@ -51,6 +51,7 @@ public abstract class Building implements Buildable, Measurable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Building building = (Building) o;
+        if (this.hashCode() != building.hashCode()) return false;
         return Objects.equals(plan, building.plan)
                 && Objects.equals(address, building.address)
                 && Objects.equals(built, building.built);

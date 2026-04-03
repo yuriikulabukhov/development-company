@@ -59,10 +59,13 @@ public class Villa extends Building {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Villa villa = (Villa) o;
+        if (this.hashCode() != villa.hashCode()) return false;
         return Objects.equals(hasPool, villa.hasPool) &&
-                Objects.equals(hasTerrace, villa.hasTerrace);
+                Objects.equals(hasTerrace, villa.hasTerrace)
+                && Objects.equals(gardenArea, villa.gardenArea);
+
     }
 
     @Override
-    public int hashCode() {return Objects.hash(super.hashCode(), hasPool, hasTerrace);}
+    public int hashCode() {return Objects.hash(super.hashCode(), hasPool, hasTerrace, gardenArea);}
 }

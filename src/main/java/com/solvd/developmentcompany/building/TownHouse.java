@@ -51,9 +51,10 @@ public class TownHouse extends Building {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        TownHouse that = (TownHouse) o;
-        return Objects.equals(houseUnits, that.houseUnits) &&
-                Objects.equals(hasParking, that.hasParking);
+        TownHouse townhouse = (TownHouse) o;
+        if (this.hashCode() != townhouse.hashCode()) return false;
+        return Objects.equals(houseUnits, townhouse.houseUnits) &&
+                Objects.equals(hasParking, townhouse.hasParking);
     }
 
     @Override
