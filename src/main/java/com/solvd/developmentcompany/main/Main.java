@@ -3,13 +3,11 @@ package com.solvd.developmentcompany.main;
 import com.solvd.developmentcompany.building.Building;
 import com.solvd.developmentcompany.building.BuildingPlan;
 import com.solvd.developmentcompany.common.Address;
-import com.solvd.developmentcompany.common.MaterialType;
 import com.solvd.developmentcompany.construction.ConstructionPhase;
 import com.solvd.developmentcompany.construction.FoundationConstruction;
 import com.solvd.developmentcompany.construction.RoofConstruction;
 import com.solvd.developmentcompany.construction.WallConstruction;
 import com.solvd.developmentcompany.exceptions.*;
-import com.solvd.developmentcompany.interfaces.ISearch;
 import com.solvd.developmentcompany.interfaces.Serviceable;
 import com.solvd.developmentcompany.person.*;
 import com.solvd.developmentcompany.project.Budget;
@@ -18,6 +16,7 @@ import com.solvd.developmentcompany.project.Permit;
 import com.solvd.developmentcompany.project.Project;
 import com.solvd.developmentcompany.service.CollectionStreaming;
 import com.solvd.developmentcompany.service.DevelopmentCompany;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -145,6 +144,13 @@ public class Main {
                 new Material("Woood",  15000.0) );
 
         CollectionStreaming.demonstrate(employees, materials);
+
+        LOGGER.info("\n8. TEXT PARSER");
+        try {
+            TextParcer.run();
+        } catch (IOException e) {
+            LOGGER.error("File error: {}", e.getMessage());
+        }
 
     }
     private static void purchaseMaterial(Material material, Budget budget) 
